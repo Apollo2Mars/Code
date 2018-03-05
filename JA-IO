@@ -1,0 +1,15 @@
+    File inputFile = new File("/home/train.json");
+    InputStream inputStream = new FileInputStream(inputFile);
+
+    /** Read **/
+    BufferedReader reader = null;
+    try{
+      reader = new BufferedReader(new FileReader(inputFile));
+      String string = null;
+      while ((string = reader.readLine()) != null){
+        System.out.println(string);
+      }
+    }catch (Exception e){
+      e.printStackTrace();
+    }
+    System.out.println(inputStream.read());
