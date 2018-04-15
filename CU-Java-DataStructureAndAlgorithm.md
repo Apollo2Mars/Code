@@ -4,135 +4,140 @@
 ```
 class Node{
 	Node next = null;
-    int data;
-    public Node(int data){this.data = data;}
+    	int data;
+    	public Node(int data){this.data = data;}
 }
 ```
 + 链表的增加删除
-	```
-    public class MyLinkedList{
-    	Node head = null;
-        /*add a data to LinkedList*/
-        public void addNode(int d){
-        	Node newNode = new Node(d);
-            if ( head == null){
-            	head = newNode;
-            }
-            Node tmp = head;
-            while(tmp.next != null){
-            	tmp = tmp.next;
-            }
-            //add to the end
-            tmp.next = newNode;
-        }
-        /* delete the index th node*/
-        public Boolean deleteNode(int index){
-        	if( index < 1 || index > length()){
-            	return false;
-            }
-            //delete the first node
-            if (index == 1){
-            	head = head.next;
-                return true;
-            }
-            int i = 1;
-            Node preNode = head;
-            Node curNode = preNode.next;
-            while(curNode != null){
-            	if(i == index){
-                	preNode.next = curNode.next;
-                    return true;
-                }
-                preNode = curNode;
-                curNode = curNode.next;
-                i++;
-            }
-        }
-        /* return the length of LinkedList*/
-        public int length(){
-        	Node tmp = head;
-            int len = 0;
-        	while(tmp != null){
-            	len++;
-                tmp = tmp.next;
-            }
-            return len;
-        }
-        /* sort and return the LinkedList*/
-        public Node orderList(){
-        	Node nextNode = null;
-            Node curNode = head;
-            int tmp = 0;
-            while(curNode != null){
-            	nextNode = curNode.next;
-                while(nextNode != null){
-                	if(curNode.data > nextNode.data){
-                    	tmp = curNode.data;
-                        curNode.data = nextNode.data;
-                        nextNode.data = tmp;
-                    }
-                    nextNode = nextNode.next;
-                }
-                curNode = curNode.next;
-            }
-            return head;
-        }
-    }
-    ```
+```
+public class MyLinkedList{
+	Node head = null;
+	/*add a data to LinkedList*/
+	public void addNode(int d){
+		Node newNode = new Node(d);
+		if ( head == null){
+			head = newNode;
+		}
+		Node tmp = head;
+		while(tmp.next != null){
+			tmp = tmp.next;
+		}	
+		//add to the end
+		tmp.next = newNode;
+	}
+	/* delete the index th node*/
+	public Boolean deleteNode(int index){
+		if( index < 1 || index > length()){
+			return false;
+		}
+		//delete the first node
+		if (index == 1){
+			head = head.next;
+			return true;
+		}
+		int i = 1;
+		Node preNode = head;
+		Node curNode = preNode.next;
+		while(curNode != null){
+			if(i == index){
+				preNode.next = curNode.next;
+				return true;
+			}
+			preNode = curNode;
+			curNode = curNode.next;
+			i++;
+		}
+	}
+	/* return the length of LinkedList*/
+	public int length(){
+		Node tmp = head;
+		int len = 0;
+		while(tmp != null){
+			len++;
+			tmp = tmp.next;
+		}
+		return len;
+	}
+	/* sort and return the LinkedList*/
+	public Node orderList(){
+		Node nextNode = null;
+		Node curNode = head;
+		int tmp = 0;
+		while(curNode != null){
+			nextNode = curNode.next;
+			while(nextNode != null){
+				if(curNode.data > nextNode.data){
+					tmp = curNode.data;
+					curNode.data = nextNode.data;
+					nextNode.data = tmp;
+				}
+				nextNode = nextNode.next;
+			}
+			curNode = curNode.next;
+		}
+		return head;
+	}
+}
+```
 + 链表删除重复元素
-	```
-    public void deleteDuplecate(Node head){
-    	Node p = head;
-        while(p != null){
-        	Node q = p;
-            while(q.next != null){
-            	if(p.data == q.next.data){
-                	q.next = q.next.next;
-                }else{
-                	q = q.next;
-                }
-            }
-            p = p.next
-        }
-    }
-    ```
+```
+// double pointer
+// pointer p : return pointer
+// pointer q : traverse the linkedlist; find the repeated node and delete it 
+// tips : p, q operate one linkedlist
+public void deleteDuplecate(Node head){
+	Node p = head;
+	while(p != null){
+		Node q = p;
+		while(q.next != null){
+			if(p.data == q.next.data){
+				q.next = q.next.next;
+			}else{
+				q = q.next;
+			}
+		}
+		p = p.next
+	}
+}
+```
 + 找出单链表的倒数第K个元素
-	```
-    //正向可查找第 length-k：问题是需要遍历两次列表
-    public findElem(Node head, int k){
-    	if(k < 1 || k > length()){
+```
+//正向可查找第 length-k：问题是需要遍历两次列表
+public findElem(Node head, int k){
+	if(k < 1 || k > length()){
         	return null
-        }
-        Node p1 = head;
-        Node p2 = head;
+	}
+	Node p1 = head;
+	Node p2 = head;
         for (int iCount = 0; i < k ; i++){
         	p1 = p1.next
         }
         while(p1.next != null){
         	p1 = p1.next;
-            p2 = p2.next;
-        }
-        return p2;
-    }
-    ```
+		p2 = p2.next;
+	}
+	return p2;
+}
+```
 + 实现链表的反转
-	```
-    public Node reverseLinkedList(Node head){
-    	Node pReverHead = Head;
-        Node pNode = head;
-        Node pPrev = null;
-        while(pNode != null){
+```
+public Node reverseLinkedList(Node head){
+	Node pReverHead = Head;
+	Node pNode = head;
+ 	Node pPrev = null;
+	while(pNode != null){
         	Node pNext = pNode.next;
-            if(pNext == null){
-            	pReverHead = pNode;
-            }
-            pNode.next = pPrev;
-            pPrev = pNode;
-            pNode = pNext;
+		if(pNext == null){
+            		pReverHead = pNode;
+		}
+		// 第一次的时候 pPrev 是 null
+            	pNode.next = pPrev;
+            	pPrev = pNode;
+            	pNode = pNext;
         }
         this.head = pReverHead;
-    }
-    ```
+}
+```
 + 从尾到头输出单链表
 	```
     public void printReverse(Node head){
@@ -150,9 +155,10 @@ class Node{
 	+ 快指针每次运动后都和慢指针比较，如果快指针等于慢指针，则证明链表是带环的单链表，否则证明这个链表是不带环的循环链表
 + 判断有环链表的起始节点
 	+ 判断节点有环后，使用（快慢指针相交的节点）确定环的长度N，从原有头节点开始遍历，如果当前Node 与 Node + N 第一次相等，则此节点为环的起始节点
-+ 不知道头指针的情况下，删除制定节点
++ 不知道头指针的情况下，删除指定节点
 + 判断两个链表是否相交
 	+ 链表相交的含义（？？？）
+		+ 求两个链表的长度差，长的链表的头指针先移动这个长度差，之后判断移动后的长链表与短链表是否相同
 	+ 判断是否有相同的尾节点
 
 ## 栈与队列
@@ -170,41 +176,104 @@ class Node{
 		+ 出栈：把队列A的前n-1个元素倒到队列B，把第n个元素去掉。此时数据在B中，下次操作，则对B操作。
 		+ 栈顶：把队列A的前n-1个元素倒到队列B，把第n个元素作为栈顶。
 
+## 查找
++ 七大查找方法 ：http://www.cnblogs.com/leezx/p/5719012.html
++ 顺序查找
++ 分块查找
++ 差值查找
++ 菲波那切查找
++ 树表查找
++ 哈希查找
++ 二分查找
+```
+public class BinarySearch { 
+        /** 
+        * 二分查找算法 
+        * 
+        * @param srcArray 有序数组 
+        * @param key 查找元素 
+        * @return key的数组下标，没找到返回-1 
+        */  
+        public static void main(String[] args) { 
+            int srcArray[] = {3,5,11,17,21,23,28,30,32,50,64,78,81,95,101};   
+            System.out.println(binSearch(srcArray, 0, srcArray.length - 1, 81));  
+        } 
+
+        // 二分查找递归实现   
+        public static int binSearch(int srcArray[], int start, int end, int key) {   
+            int mid = (end - start) / 2 + start;   
+            if (srcArray[mid] == key) {   
+                return mid;   
+            }   
+            if (start >= end) {   
+                return -1;   
+            } else if (key > srcArray[mid]) {   
+                return binSearch(srcArray, mid + 1, end, key);   
+            } else if (key < srcArray[mid]) {   
+                return binSearch(srcArray, start, mid - 1, key);   
+            }   
+            return -1;   
+        } 
+
+        // 二分查找普通循环实现   
+        public static int binSearch(int srcArray[], int key) {   
+            int mid = srcArray.length / 2;   
+            if (key == srcArray[mid]) {   
+                return mid;   
+            }   
+
+            int start = 0;   
+            int end = srcArray.length - 1;   
+            while (start <= end) {   
+                mid = (end - start) / 2 + start;   
+                if (key < srcArray[mid]) {   
+                   end = mid - 1;   
+                } else if (key > srcArray[mid]) {   
+                    start = mid + 1;   
+                } else {   
+                    return mid;   
+                }   
+            }   
+            return -1;   
+        } 
+    }
+```
+
 ## 排序
 + 归并排序
-	```
-    ```
+```
+```
 + 快速排序
-	```
-    public static void sort(int array[], int low, int high){
-        int i,j;
-        int index;
-        if(low >= high){
-            return;
-        }
-        i = low;
-        j = high;
-        //
-        index = arrar[i];
-        while(i<j){
-        	while(i<j && array[j] >= index){
-            	j--;
-            }
-            if(i < j){
-            	array[i++] = array[j];
-            }
-            while(i<j && array[i] < index){
-            	i++;
-            }
-            if(i<j){
-            	array[j--] == array[i];
-            }
-        }
-        array[i] = index;
-        sort(array, low, i-1);
-        sort(array, i+1, high);
-    }
-    ```
+```
+public static void sort(int array[], int low, int high){
+	int i,j;
+	int key;
+	if(low >= high){
+		return;
+	}
+	i = low;
+	j = high;
+	//
+	key = arrar[i];
+	while(i<j){
+		while(i<j && array[j] >= index){
+			j--;
+		}
+	    	if(i < j){
+			array[i++] = array[j];
+	    	}
+	    	while(i<j && array[i] < index){
+			i++;
+	    	}
+	    	if(i<j){
+			array[j--] == array[i];
+	    	}
+	}
+	array[i] = key;
+	sort(array, low, i-1);
+	sort(array, i+1, high);
+}
+```
 
 ## 位运算
 
@@ -254,29 +323,29 @@ class Node{
 		+ 时间复杂度 O(n), 空间复杂度 O(1)
 		+ 异或思想 ： 转为 二进制， 相同为零，不同为一
 		```
-        public static int findNotDouble(int []){
-            int result = a[0];
-            for (int i=0; i < a.length; i++){
-            	result ^=a[i];
-            }
-        }
-        ```
+		public static int findNotDouble(int []){
+		    	int result = a[0];
+		    	for (int i=0; i < a.length; i++){
+				result ^=a[i];
+		    	}
+		}
+        	```
 	+ 问题：一个整型数组除了1个数字出现一次之外，其他数字都出现了2k+1次
 		+ 数组中所有数字对应的二进制数各个位置上1的个数对2k+1求余数，就可以得到所求数的二进制表示
 	+ 问题：一个整型数组除了2个数字出现一次之外，其他数字都出现了2k次
 		+ 例子
 		```
-        23, 23, 19, 19, 1, 88, 88, 3, 3, 2, 56, 56
-        x = 23^23^19^19^1^88^88^3^3^2^56^56 = 1^2
-        例如：这里x = 3 = 00000011B，从这里看出，a1和a2在1~2比特位上是不一样的。我们随便选取其中一位，比如右起第一位为区分位，这样所有数字可以分为两组：
-        比特位末位为0：88, 88, 2, 56, 56
-		比特位末位为1：23, 23, 19, 19, 1, 3, 3
+		23, 23, 19, 19, 1, 88, 88, 3, 3, 2, 56, 56
+		x = 23^23^19^19^1^88^88^3^3^2^56^56 = 1^2
+		例如：这里x = 3 = 00000011B，从这里看出，a1和a2在1~2比特位上是不一样的。我们随便选取其中一位，比如右起第一位为区分位，这样所有数字可以分为两组：
+		比特位末位为0：88, 88, 2, 56, 56
+			比特位末位为1：23, 23, 19, 19, 1, 3, 3
 
-        这样分完后，我们发现，a1和a2分到不同的组里了。将其中任意一组所有数字进行异或，便可以得出其中一个不重复的数字：
-		a1 = 88^88^2^56^56 = 2
-		a2 = a1^x = a1^a1^a2 = 1
-		这样，我们只需要遍历两遍数组，就可以找出这两个数。
-        ```
+		这样分完后，我们发现，a1和a2分到不同的组里了。将其中任意一组所有数字进行异或，便可以得出其中一个不重复的数字：
+			a1 = 88^88^2^56^56 = 2
+			a2 = a1^x = a1^a1^a2 = 1
+			这样，我们只需要遍历两遍数组，就可以找出这两个数。
+        	```
 + 找出数组中唯一的重复元素
 	+ 问题：数组 a[N], 1～N-1 ， 其中某个数字重复了一次
 	+ 要求：每个数组只能访问一次
