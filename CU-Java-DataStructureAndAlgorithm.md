@@ -269,7 +269,7 @@ public class MergeSortTest {
 
 	public static void sort(int[] data, int left, int right) {
 		if (left >= right)
-			return;
+        return;
 		// 找出中间索引
 		int center = (left + right) / 2;
 		// 对左边数组进行递归
