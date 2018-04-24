@@ -218,6 +218,16 @@
 		+ rstrip
 		+ split(str="", num=string.count(str))
 			+ num=string.count(str)) 以 str 为分隔符截取字符串，如果 num 有指定值，则仅截取 num 个子字符串
+			+ str -- 分隔符，默认为所有的空字符，包括空格、换行(\n)、制表符(\t)等。
+			+ num -- 分割次数
+			```
+            str = "Line1-abcdef \nLine2-abc \nLine4-abcd";
+			print str.split( );
+			print str.split(' ', 1 );
+            # output
+            ['Line1-abcdef', 'Line2-abc', 'Line4-abcd']
+			['Line1-abcdef', '\nLine2-abc \nLine4-abcd']
+            ```
 		+ (???)splitlines([keepends])
 			+ 按照行('\r', '\r\n', '\n')分隔，返回一个包含各行作为元素的列表
 			+ 如果参数 keepends 为 False，不包含换行符，如果为 True，则保留换行符。
@@ -715,17 +725,114 @@
 + 类定义
 
 + 类对象
-+ self代表类的实例，而非类
+	+ 很多类都倾向于将对象创建为有初始状态的。因此类可能会定义一个名为 __init__() 的特殊方法（构造方法）
+	```
+    class Complex:
+    def __init__(self, realpart, imagpart):
+        self.r = realpart
+        self.i = imagpart
+	x = Complex(3.0, -4.5)
+	print(x.r, x.i)   # 输出结果：3.0 -4.5
+    ```
++ (???)self代表类的实例，而非类
+	+ self 不是 python 关键字，我们把他换成 runoob 也是可以正常执行的
 + 类的方法
+	+ 在类地内部，使用 def 关键字来定义一个方法，与一般函数定义不同，类方法必须包含参数 self, 且为第一个参数，self 代表的是类的实例
 + 继承
+	+ 形式
+	```
+    class DerivedClassName(BaseClassName1):
+        <statement-1>
+        .
+        .
+        .
+        <statement-N>
+    ```
+    + 需要注意圆括号中基类的顺序，若是基类中有相同的方法名，而在子类使用时未指定，python从左至右搜索 即方法在子类中未找到时，从左到右查找基类中是否包含方法
+	+ （？？？）BaseClassName（示例中的基类名）必须与派生类定义在一个作用域内。
+	+ （？？？）除了类，还可以用表达式，基类定义在另一个模块中时这一点非常有用:
+	```
+    class DerivedClassName(modname.BaseClassName):
+    ```
+
 + 多继承
+	+ 格式
+	```
+    class DerivedClassName(Base1, Base2, Base3):
+        <statement-1>
+        .
+        .
+        .
+        <statement-N>
+    ```
+    + 需要注意圆括号中父类的顺序，若是父类中有相同的方法名，而在子类使用时未指定，python从左至右搜索 即方法在子类中未找到时，从左到右查找父类中是否包含方法
 + 方法重写
+	```
+    class Parent:        # 定义父类
+       def myMethod(self):
+          print ('调用父类方法')
+
+        class Child(Parent): # 定义子类
+           def myMethod(self):
+              print ('调用子类方法')
+
+        c = Child()          # 子类实例
+        c.myMethod()         # 子类调用重写方法
+        super(Child,c).myMethod() #用子类对象调用父类已被覆盖的方法
+	# output
+    调用子类方法
+	调用父类方法
+    ```
+    + super() 函数是用于调用父类(超类)的一个方法
 + 类属性与方法
 	+ 类的私有属性
+		+ __private_attrs：两个下划线开头，声明该属性为私有，不能在类地外部被使用或直接访问。在类内部的方法中使用时 self.__private_attrs
 	+ 类的方法
+		+ 在类地内部，使用 def 关键字来定义一个方法，与一般函数定义不同，类方法必须包含参数 self，且为第一个参数，self 代表的是类的实例。
+		+ self 的名字并不是规定死的，也可以使用 this，但是最好还是按照约定是用 self
 	+ 类的私有方法
+		+ __private_method：两个下划线开头，声明该方法为私有方法，只能在类的内部调用 ，不能在类地外部调用。self.__private_method
+	+ 类的专有方法
+		+ __init__ : 构造函数，在生成对象时调用
+		+ __del__ : 析构函数，释放对象时使用
+		+ __repr__ : 打印，转换
+		+ __setitem__ : 按照索引赋值
+		+ __getitem__: 按照索引获取值
+		+ __len__: 获得长度
+		+ __cmp__: 比较运算
+        + __call__: 函数调用
+        + __add__: 加运算
+        + __sub__: 减运算
+        + __mul__: 乘运算
+        + __div__: 除运算
+        + __mod__: 求余运算
+        + __pow__: 乘方
 	+ 运算符重载
+		+ 例子
+		```
+        class Vector:
+           def __init__(self, a, b):
+              self.a = a
+              self.b = b
 
+           def __str__(self):
+              return 'Vector (%d, %d)' % (self.a, self.b)
+
+           def __add__(self,other):
+              return Vector(self.a + other.a, self.b + other.b)
+
+        v1 = Vector(2,10)
+        v2 = Vector(5,-2)
+        print (v1 + v2)
+        # output
+        Vector(7,8)
+        ```
++ 高级编程
+	+ ref : https://www.liaoxuefeng.com/wiki/0014316089557264a6b348958f449949df42a6d3a2e542c000/00143186781871161bc8d6497004764b398401a401d4cce000
+	+ __slot__
+	+ @property
+	+ 定制类
+	+ 元类
 
 ## 9.Error and Exception
 + SyntaxError : 语法错误
@@ -908,16 +1015,145 @@
     from sound.effects.echo import echofilter
     echofilter(input, output, delay=0.7, atten=4)
     ```
-    + 从一个包中导入*
+    + 从一个包中导入
 
 ## 11.IO
 + 输出格式美化
-+ 旧式字符串格式化
-+ 读取键盘输入
-+ 读写文件
-+ 文件对象的方法
-+ pickle模块
+	+ str()： 函数返回一个用户易读的表达形式。
+	+ repr()： 产生一个解释器易读的表达形式
+	+ 两种方式输出平方立方表（1到10）
+		```
+        # demo1
+        for x in range(1, 11):
+			print(repr(x).rjust(2), repr(x*x).rjust(3), end=' ')
+		# 注意前一行 'end' 的使用
+		print(repr(x*x*x).rjust(4))
+        # demo2
+        for x in range(1, 11):
+			print('{0:2d} {1:3d} {2:4d}'.format(x, x*x, x*x*x))
+        ```
+	+ str.format
+		+ 括号及其里面的字符 (称作格式化字段) 将会被 format() 中的参数替换。
+		```
+        print('{}网址： "{}!"'.format('菜鸟教程', 'www.runoob.com'))
+		# output
+        菜鸟教程网址： "www.runoob.com!"
+		```
+		+ 在括号中的数字用于指向传入对象在 format() 中的位置
+		```
+        print('{0} 和 {1}'.format('Google', 'Runoob'))
+		# output
+        Google 和 Runoob
+		print('{1} 和 {0}'.format('Google', 'Runoob'))
+		# output
+        Runoob 和 Google
+        ```
+        + 如果在 format() 中使用了关键字参数, 那么它们的值会指向使用该名字的参数
+        ```
+        print('{name}网址： {site}'.format(name='菜鸟教程', site='www.runoob.com'))
+		# output
+        菜鸟教程网址： www.runoob.com
+        ```
+        + 位置及关键字参数可以任意的结合
+        ```
+        print('站点列表 {0}, {1}, 和 {other}。'.format('Google', 'Runoob',
+                                                       other='Taobao'))
+		# output
+        站点列表 Google, Runoob, 和 Taobao
+        ```
+        + (???) '!a' (使用 ascii()), '!s' (使用 str()) 和 '!r' (使用 repr()) 可以用于在格式化某个值之前对其进行转化
+     	+ 可选项 ':' 和格式标识符可以跟着字段名。 这就允许对值进行更好的格式化。 下面的例子将 Pi 保留到小数点后三位
+     	```
+        import math
+		print('常量 PI 的值近似为 {0:.3f}。'.format(math.pi))
+		# output
+        常量 PI 的值近似为 3.142
+        ```
+     	+ 在 ':' 后传入一个整数, 可以保证该域至少有这么多的宽度。 用于美化表格时很有用
 
++ 旧式字符串格式化
+	+ % 操作符也可以实现字符串格式化
+	```
+    import math
+	print('常量 PI 的值近似为：%5.3f。' % math.pi)
+	# output
+    常量 PI 的值近似为：3.142。
+    ```
++ 读取键盘输入
+	```
+    str = input("请输入：");
+	print ("你输入的内容是: ", str)
+    #output
+    请输入：AAA
+	你输入的内容是:  AAA
+    ```
++ 读写文件
+	+ open 返回一个file对象
+	+ open(filename, mode)
+		+ filename：filename 变量是一个包含了你要访问的文件名称的字符串值
+		+ mode：mode决定了打开文件的模式：只读，写入，追加等。所有可取值见如下的完全列表。这个参数是非强制的，默认文件访问模式为只读(r)
+		| mode | description |
+		|--------|--------|
+        | r  | 以**只读**方式打开文件。文件的指针将会放在文件的**开头**。这是默认模式 |
+        | rb | 以二进制格式打开一个文件用于只读 |
+        | r+ | 打开一个文件用于读写。文件指针将会放在文件的开头 |
+        | rb+ | 以二进制格式打开一个文件用于读写。文件指针将会放在文件的开头 |
+        | w | 打开一个文件只用于**写入**。如果该文件已存在则将其覆盖。如果该文件不存在，创建新文件 |
+        | wb | 以二进制格式打开一个文件只用于写入。如果该文件已存在则将其覆盖。如果该文件不存在，创建新文件 |
+        | w+ | 打开一个文件用于读写。如果该文件已存在则将其覆盖。如果该文件不存在，创建新文件 |
+        | wb+ | 以二进制格式打开一个文件用于读写。如果该文件已存在则将其覆盖。如果该文件不存在，创建新文件 |
+        | a	 | 打开一个文件用于追加。如果该文件已存在，文件指针将会放在文件的结尾。也就是说，新的内容将会被写入到已有内容之后。如果该文件不存在，创建新文件进行写入 |
+		| ab | 以二进制格式打开一个文件用于追加。如果该文件已存在，文件指针将会放在文件的结尾。也就是说，新的内容将会被写入到已有内容之后。如果该文件不存在，创建新文件进行写入 |
+		| a+ | 打开一个文件用于读写。如果该文件已存在，文件指针将会放在文件的结尾。文件打开时会是追加模式。如果该文件不存在，创建新文件用于读写 |
+		| ab+ | 以二进制格式打开一个文件用于追加。如果该文件已存在，文件指针将会放在文件的结尾。如果该文件不存在，创建新文件用于读写 |
+
+		![](http://www.runoob.com/wp-content/uploads/2013/11/2112205-861c05b2bdbc9c28.png)
+		+ Diff
+		| 模式 | r | r+ | w | w+ | a | a+ |
+        |-----|---|----|---|----|----|---|
+		| 读	 | + | +  |    | +	|   | + |
+        | 写	 |   | +  | +  | +	| + | + |
+		| 创建 |   |    | + | +  | +  | + |
+        | 覆盖 |   |    | + | +  |    |   |
+        | 指针在开始 | + | +  | + | +  |   |  |
+        | 指针在结束 |  |   |  |   | +  | +  |
+
++ 文件对象的方法
+	+ f.read()
+		+ 为了读取一个文件的内容，调用 f.read(size), 这将读取一定数目的数据, 然后作为字符串或字节对象返回
+		+ size 是一个可选的数字类型的参数。 当 size 被忽略了或者为负, 那么该文件的所有内容都将被读取并且返回
+	+ f.readline()
+		+ f.readline() 会从文件中读取单独的一行。换行符为 '\n'。
+		+ f.readline() 如果返回一个空字符串, 说明已经已经读取到最后一行
+	+ f.readlines()
+		+ f.readlines() 将返回该文件中包含的所有行
+		+ 如果设置可选参数 sizehint, 则读取指定长度的字节, 并且将这些字节按行分割
+		```
+        f = open("/tmp/foo.txt", "r")
+		str = f.readlines()
+		print(str)
+		# 关闭打开的文件
+		f.close()
+        ```
+	+ f.write
+		+ f.write(string) 将 string 写入到文件中, 然后返回写入的字符数
+		+ 如果要写入一些不是字符串的东西, 那么将需要先进行转换
+	+ f.tell()
+		+ 返回文件对象当前所处的位置, 它是从文件开头开始算起的字节数
+	+ f.seek()
+		+ 如果要改变文件当前的位置, 可以使用 f.seek(offset, from_what) 函数。
+		+ from_what 的值, 如果是 0 表示开头, 如果是 1 表示当前位置, 2 表示文件的结尾，例如：
+			+ seek(x,0) ： 从起始位置即文件首行首字符开始移动 x 个字符
+			+ seek(x,1) ： 表示从当前位置往后移动x个字符
+			+ seek(-x,2)：表示从文件的结尾往前移动x个字符
+	+ f.close()
++ pickle模块
+	+ 实现了基本的数据序列和反序列化
+	+ 通过pickle模块的序列化操作我们能够将程序中运行的对象信息保存到文件中去，永久存储
+	+ 通过pickle模块的反序列化操作，我们能够从文件中创建上一次程序保存的对象
+	+ 基本接口
+		+ pickle.dump(obj, file, [,protocol])
+		+ x = pickle.load(file)
 ## 12.File
 + file.close()
 	+ 关闭文件。关闭后文件不能再进行读写操作
