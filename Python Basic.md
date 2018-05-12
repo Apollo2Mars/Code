@@ -1,4 +1,17 @@
 # Python
+
+## Need to do
++ reorganize this blog according to http://javayhu.me/python/
+```
+1.Python基础知识篇
+Python Basics 和 Python Advances 前者是Python基础的简单总结(大部分摘自网上恩师@廖雪峰老师的Python教程)，后者推荐了些关于Python高级特性的好文章(大部分摘自伯乐在线Python分类的文章)
+```
+
+## Reference
++ http://javayhu.me/python/
++ http://www.runoob.com/python/python-tutorial.html
+
+
 ## 1. Python Basic
 + version
     ```
@@ -220,14 +233,15 @@
 			+ num=string.count(str)) 以 str 为分隔符截取字符串，如果 num 有指定值，则仅截取 num 个子字符串
 			+ str -- 分隔符，默认为所有的空字符，包括空格、换行(\n)、制表符(\t)等。
 			+ num -- 分割次数
-			```
+            ```
             str = "Line1-abcdef \nLine2-abc \nLine4-abcd";
-			print str.split( );
-			print str.split(' ', 1 );
+            print str.split( );
+            print str.split(' ', 1 );
             # output
             ['Line1-abcdef', 'Line2-abc', 'Line4-abcd']
-			['Line1-abcdef', '\nLine2-abc \nLine4-abcd']
+            ['Line1-abcdef', '\nLine2-abc \nLine4-abcd']
             ```
+
 		+ (???)splitlines([keepends])
 			+ 按照行('\r', '\r\n', '\n')分隔，返回一个包含各行作为元素的列表
 			+ 如果参数 keepends 为 False，不包含换行符，如果为 True，则保留换行符。
@@ -251,7 +265,7 @@
 		+ 截取 ： 变量[头下标:尾下标]
 		+ 索引值以 0 为开始值，-1 为从末尾的开始位置
 	+ 加号（+）是列表连接运算符，星号（*）是重复操作
-	```
+    ```
     list = [ 'abcd', 786 , 2.23, 'runoob', 70.2 ]
     tinylist = [123, 'runoob']
 
@@ -312,9 +326,9 @@
 + Tuple (不可变/immutable)Set() {}
 	+ 元组（tuple）与列表类似，不同之处在于元组的元素不能修改
 	+ 可包含List等可变的对象
-	```
+    ```
     tup = (1, 2, 3, 4, 5, 6)
-	print(tup[0])
+    print(tup[0])
     ```
     + 构造包含 0 个或 1 个元素的元组比较特殊，所以有一些额外的语法规则
     ```
@@ -327,21 +341,18 @@
     	+ max(tuple)
     	+ tuple(seq)
     		+ 将列表转换为元组
-    		```
-            list1= ['Google', 'Taobao', 'Runoob', 'Baidu']
-			tuple1=tuple(list1)
-			tuple1
-			('Google', 'Taobao', 'Runoob', 'Baidu')
-            ```
+
 + Sets
 	+ 集合（set）是一个无序不重复元素的序列
 	+ 基本功能是进行成员关系测试和删除重复元素
 	+ 可以使用大括号 { } 或者 set() 函数创建集合，注意：创建一个空集合必须用 set() 而不是 { }，因为 { } 是用来创建一个空字典
-	```
+	
+    ```
     parame = {value01,value02,...}
 	# 或者
 	set(value)
     ```
+    
     ```
     student = {'Tom', 'Jim', 'Mary', 'Tom', 'Jack', 'Rose'}
     print(student)   # 输出集合，重复的元素被自动去掉
@@ -364,7 +375,8 @@
 	+ 字典是一种映射类型，字典用"{ }"标识，它是一个无序的键(key) : 值(value)对集合
 	+ 键(key)必须使用不可变类型
 	+ 在同一个字典中，键(key)必须是唯一的
-	```
+	
+    ```
     dict = {}
 	dict['one'] = "1 - 菜鸟教程"
 	dict[2]     = "2 - 菜鸟工具"
@@ -478,7 +490,8 @@
 
 ## 4.Regular Expression
 + split
-	```
+	
+    ```
 	# lineSeg = line.split('/[\w]+')
 	lineSeg = re.split('/\w+', line)
     ```
@@ -514,7 +527,8 @@
     2
     3
     4
-	```
+    ```
+
 + break
     + break 语句可以跳出 for 和 while 的循环体。如果你从 for 或 while 循环中终止，任何对应的循环 else 块将不执行
 + couninue
@@ -585,15 +599,16 @@
     + return [表达式] 结束函数，选择性地返回一个值给调用方。不带表达式的return相当于返回 None
 + 参数传递：
 	+ 不可变类型：类似 c++ 的值传递，如 整数、字符串、元组。如fun（a），传递的只是a的值，没有影响a对象本身。比如在 fun（a）内部修改 a 的值，只是修改另一个复制的对象，不会影响 a 本身。
-	```
+    ```
     def ChangeInt( a ):
     a = 10
-	b = 2
-	ChangeInt(b)
-	print( b ) # 结果是 2
+    b = 2
+    ChangeInt(b)
+    print( b ) # 结果是 2
     ```
-	+ 可变类型：类似 c++ 的引用传递，如 列表，字典。如 fun（la），则是将 la 真正的传过去，修改后fun外部的la也会受影响
-	```
+	
+    + 可变类型：类似 c++ 的引用传递，如 列表，字典。如 fun（la），则是将 la 真正的传过去，修改后fun外部的la也会受影响
+    ```
     def changeme( mylist ):
        "修改传入的列表"
        mylist.append([1,2,3,4]);
@@ -605,12 +620,12 @@
     print ("函数外取值: ", mylist)
     # 结果
     函数内取值:  [10, 20, 30, [1, 2, 3, 4]]
-	函数外取值:  [10, 20, 30, [1, 2, 3, 4]]
+    函数外取值:  [10, 20, 30, [1, 2, 3, 4]]
     ```
 + 参数
 	+ 必须参数
-	+ 关键字参数
-		```
+	+ 关键字参数 
+        ```
         def printinfo( name, age ):
            "打印任何传入的字符串"
            print ("名字: ", name);
@@ -619,9 +634,11 @@
         #调用printinfo函数
         printinfo( age=50, name="runoob" );
         ```
+
 	+ 默认参数
 	+ 不定长参数
-		```
+		
+        ```
         def printinfo( arg1, *vartuple ):
            "打印任何传入的参数"
            print ("输出: ")
@@ -641,7 +658,7 @@
 	+ lambda的主体是一个表达式，而不是一个代码块。仅仅能在lambda表达式中封装有限的逻辑进去。
 	+ lambda 函数拥有自己的命名空间，且不能访问自己参数列表之外或全局命名空间里的参数。
 	+ 虽然lambda函数看起来只能写一行，却不等同于C或C++的内联函数，后者的目的是调用小函数时不占用栈内存从而增加运行效率。
-	```
+    ```
 	sum = lambda arg1, arg2: arg1 + arg2;
 	# 调用sum函数
 	print ("相加后的值为 : ", sum( 10, 20 ))
@@ -657,7 +674,8 @@
         + G （Global） 全局作用域
         + B （Built-in） 内建作用域
      	+ 以 L –> E –> G –>B 的规则查找，即：在局部找不到，便会去局部外的局部找（例如闭包），再找不到就会去全局找，再者去内建中找。
-	```
+	
+    ```
     x = int(2.9)  # 内建作用域
     g_count_ = 0  # 全局作用域
     def outer():
@@ -667,7 +685,8 @@
     ```
 	+ gobal
 		+ 当内部作用域想修改外部作用域的变量时
-		```
+	   
+        ```
         num = 1
         def fun1():
             global num  # 需要使用 global 关键字声明
@@ -681,7 +700,7 @@
         ```
 	+ nonlocal
 		+ 如果要修改嵌套作用域（enclosing 作用域，外层非全局作用域）中的变量则需要 nonlocal 关键字了
-		```
+        ```
         def outer():
             num = 10
             def inner():
@@ -696,7 +715,7 @@
 		100
         ```
 	+ error example
-		```
+        ```
         a = 10
         def test():
             a = a + 1
@@ -726,7 +745,7 @@
 
 + 类对象
 	+ 很多类都倾向于将对象创建为有初始状态的。因此类可能会定义一个名为 __init__() 的特殊方法（构造方法）
-	```
+    ```
     class Complex:
     def __init__(self, realpart, imagpart):
         self.r = realpart
@@ -740,7 +759,7 @@
 	+ 在类地内部，使用 def 关键字来定义一个方法，与一般函数定义不同，类方法必须包含参数 self, 且为第一个参数，self 代表的是类的实例
 + 继承
 	+ 形式
-	```
+    ```
     class DerivedClassName(BaseClassName1):
         <statement-1>
         .
@@ -751,13 +770,13 @@
     + 需要注意圆括号中基类的顺序，若是基类中有相同的方法名，而在子类使用时未指定，python从左至右搜索 即方法在子类中未找到时，从左到右查找基类中是否包含方法
 	+ （？？？）BaseClassName（示例中的基类名）必须与派生类定义在一个作用域内。
 	+ （？？？）除了类，还可以用表达式，基类定义在另一个模块中时这一点非常有用:
-	```
+    ```
     class DerivedClassName(modname.BaseClassName):
     ```
 
 + 多继承
 	+ 格式
-	```
+    ```
     class DerivedClassName(Base1, Base2, Base3):
         <statement-1>
         .
@@ -767,7 +786,7 @@
     ```
     + 需要注意圆括号中父类的顺序，若是父类中有相同的方法名，而在子类使用时未指定，python从左至右搜索 即方法在子类中未找到时，从左到右查找父类中是否包含方法
 + 方法重写
-	```
+    ```
     class Parent:        # 定义父类
        def myMethod(self):
           print ('调用父类方法')
@@ -809,7 +828,7 @@
         + __pow__: 乘方
 	+ 运算符重载
 		+ 例子
-		```
+        ```
         class Vector:
            def __init__(self, a, b):
               self.a = a
@@ -865,7 +884,7 @@
         ```
 	+ 抛出异常
 		+ 抛出一个指定的异常
-		```
+        ```
         $ raise NameError('HiThere')
         # output
         Traceback (most recent call last):
@@ -925,6 +944,7 @@
         + sys.path 输出是一个列表，其中第一项是空串''，代表当前目录
         + 若是从一个脚本中打印出来的话，可以更清楚地看出是哪个目录
         + 当前目录下存在与要引入模块同名的文件，就会把要引入的模块屏蔽掉
+        
         ```
         例子
         现在，在解释器的当前目录或者 sys.path 中的一个目录里面来创建一个fibo.py的文件，代码如下：
@@ -965,7 +985,8 @@
 
 + from ... import
 	+ 这个声明不会把整个fibo模块导入到当前的命名空间中，它只会将fibo里的fib函数引入进来
-	```
+	
+    ```
     $ from fibo import fib, fib2
 	$ fib(500)
 	1 1 2 3 5 8 13 21 34 55 89 144 233 377
@@ -976,7 +997,8 @@
 	+ 每个模块都有一个__name__属性，当其值是'__main__'时，表明该模块自身在运行，否则是被引入
 	+ 一个模块被另一个程序第一次引入时，其主程序将运行。
 	+ 如果我们想在模块被引入时，模块中的某一程序块不执行，我们可以用__name__属性来使该程序块仅在该模块自身运行时执行
-	```
+	
+    ```
     # Filename: using_name.py
     if __name__ == '__main__':
        print('程序自身在运行')
@@ -1004,7 +1026,8 @@
 		 + 注意当使用from package import item这种形式的时候，对应的item既可以是包里面的子模块（子包），或者包里面定义的其他名称，比如函数，类或者变量
 		 + import语法会首先把item当作一个包定义的名称，如果没找到，再试图按照一个模块去导入。如果还没找到，恭喜，一个:exc:ImportError 异常被抛出了
 		 + 反之，如果使用形如import item.subitem.subsubitem这种导入形式，除了最后一项，都必须是包，而最后一项则可以是模块或者是包，但是不可以是类，函数或者变量的名字
-	```
+	
+    ```
     # demo 1
     import sound.effects.echo
     sound.effects.echo.echofilter(input, output, delay=0.7, atten=4)
@@ -1022,7 +1045,8 @@
 	+ str()： 函数返回一个用户易读的表达形式。
 	+ repr()： 产生一个解释器易读的表达形式
 	+ 两种方式输出平方立方表（1到10）
-		```
+
+        ```
         # demo1
         for x in range(1, 11):
 			print(repr(x).rjust(2), repr(x*x).rjust(3), end=' ')
@@ -1040,7 +1064,8 @@
         菜鸟教程网址： "www.runoob.com!"
 		```
 		+ 在括号中的数字用于指向传入对象在 format() 中的位置
-		```
+
+        ```
         print('{0} 和 {1}'.format('Google', 'Runoob'))
 		# output
         Google 和 Runoob
@@ -1049,12 +1074,14 @@
         Runoob 和 Google
         ```
         + 如果在 format() 中使用了关键字参数, 那么它们的值会指向使用该名字的参数
+        
         ```
         print('{name}网址： {site}'.format(name='菜鸟教程', site='www.runoob.com'))
 		# output
         菜鸟教程网址： www.runoob.com
         ```
         + 位置及关键字参数可以任意的结合
+        
         ```
         print('站点列表 {0}, {1}, 和 {other}。'.format('Google', 'Runoob',
                                                        other='Taobao'))
@@ -1063,7 +1090,8 @@
         ```
         + (???) '!a' (使用 ascii()), '!s' (使用 str()) 和 '!r' (使用 repr()) 可以用于在格式化某个值之前对其进行转化
      	+ 可选项 ':' 和格式标识符可以跟着字段名。 这就允许对值进行更好的格式化。 下面的例子将 Pi 保留到小数点后三位
-     	```
+     	
+        ```
         import math
 		print('常量 PI 的值近似为 {0:.3f}。'.format(math.pi))
 		# output
@@ -1073,14 +1101,16 @@
 
 + 旧式字符串格式化
 	+ % 操作符也可以实现字符串格式化
-	```
+	
+    ```
     import math
 	print('常量 PI 的值近似为：%5.3f。' % math.pi)
 	# output
     常量 PI 的值近似为：3.142。
     ```
 + 读取键盘输入
-	```
+	
+    ```
     str = input("请输入：");
 	print ("你输入的内容是: ", str)
     #output
@@ -1128,7 +1158,8 @@
 	+ f.readlines()
 		+ f.readlines() 将返回该文件中包含的所有行
 		+ 如果设置可选参数 sizehint, 则读取指定长度的字节, 并且将这些字节按行分割
-		```
+		
+        ```
         f = open("/tmp/foo.txt", "r")
 		str = f.readlines()
 		print(str)
@@ -1154,6 +1185,7 @@
 	+ 基本接口
 		+ pickle.dump(obj, file, [,protocol])
 		+ x = pickle.load(file)
+
 ## 12.File
 + file.close()
 	+ 关闭文件。关闭后文件不能再进行读写操作
@@ -1183,6 +1215,7 @@
 	+ 向文件写入一个序列字符串列表，如果需要换行则要自己加入每行的换行符
 
 ## 13. OS
++ os模块负责程序与操作系统的交互，提供了访问操作系统底层的接口
 + os 模块提供了非常丰富的方法用来处理文件和目录
 + os.access(path, mode)
 	+ 检验权限模式
@@ -1310,3 +1343,139 @@
 	+ 输出在文件夹中的文件名通过在树中游走，向上或者向下。
 + os.write(fd, str)
 	+ 写入字符串到文件描述符 fd中. 返回实际写入的字符串长度
+
+## 14 Sys
+sys模块负责程序与python解释器的交互，提供了一系列的函数和变量，用于操控python的运行时环境
+链接：https://www.zhihu.com/question/31843617/answer/150854646
+
+sys.argv 命令行参数List，第一个元素是程序本身路径
+sys.modules.keys() 返回所有已经导入的模块列表
+sys.exc_info() 获取当前正在处理的异常类,exc_type、exc_value、exc_traceback当前处理的异常详细信息
+sys.exit(n) 退出程序，正常退出时exit(0)
+sys.hexversion 获取Python解释程序的版本值，16进制格式如：0x020403F0
+sys.version 获取Python解释程序的版本信息
+sys.maxint 最大的Int值
+sys.maxunicode 最大的Unicode值
+sys.modules 返回系统导入的模块字段，key是模块名，value是模块
+sys.path 返回模块的搜索路径，初始化时使用PYTHONPATH环境变量的值
+sys.platform 返回操作系统平台名称
+sys.stdout 标准输出
+```
+import sys; x = 'runoob'; sys.stdout.write(x + '\n')
+输出
+runoob
+7
+```
+sys.stdin 标准输入
+sys.stderr 错误输出
+sys.exc_clear() 用来清除当前线程所出现的当前的或最近的错误信息
+sys.exec_prefix 返回平台独立的python文件安装的位置
+sys.byteorder 本地字节规则的指示器，big-endian平台的值是'big',little-endian平台的值是'little'
+sys.copyright 记录python版权相关的东西
+sys.api_version 解释器的C的API版本
+
+
+## 15 内置函数
++ Python内置(built-in)函数随着python解释器的运行而创建。在Python的程序中，你可以随时调用这些函数，不需要定义
+
++ abs()   
++ all()   
++ any()   
++ basestring()    
++ bin()   
++ bool()  
++ bytearray() 
++ callable()  
++ chr()   
++ classmethod()   
++ cmp()   
++ compile()   
++ complex()   
++ delattr()     
++ dict()   
++ dir()      
++ divmod()    
++ enumerate() 
+    + enumerate() 函数用于将一个可遍历的数据对象(如列表、元组或字符串)组合为一个索引序列，同时列出数据和数据下标，一般用在 for 循环当中。
+    ```
+    enumerate(sequence, [start=0])
+    sequence -- 一个序列、迭代器或其他支持迭代对象
+    start -- 下标起始位置
+
+    # demo1
+    seasons = ['Spring', 'Summer', 'Fall', 'Winter']
+    list(enumerate(seasons))
+    # output
+    [(0, 'Spring'), (1, 'Summer'), (2, 'Fall'), (3, 'Winter')]
+    list(enumerate(seasons, start=1))       # 小标从 1 开始
+    # output
+    [(1, 'Spring'), (2, 'Summer'), (3, 'Fall'), (4, 'Winter')]
+
+    # demo2
+    seq = ['one', 'two', 'three']
+    for i, element in enumerate(seq):
+        print i, seq[i]
+    # output
+    0 one
+    1 two
+    2 three
+
+    ```
++ eval()  
++ execfile()  
++ file()  
++ filter()    
++ float() 
++ format()    
++ frozenset() 
++ getattr()   
++ globals()   
++ hasattr()   
++ hash()  
++ help()  
++ hex()   
++ id()    
++ input() 
++ int()   
++ isinstance()   
++ issubclass()    
++ iter()  
++ len()   
++ list()  
++ locals()    
++ long()  
++ map()   
++ max()   
++ memoryview()    
++ min()   
++ next()  
++ object()     
++ oct()   
++ open()  
++ ord()   
++ pow()   
++ print() 
++ property()  
++ range() type()
++ raw_input() 
++ reduce()    
++ reload()    
++ repr()  
++ reverse()   zip()
++ round() 
++ set() 
++ setattr()
++ slice() 
++ sorted() 
++ staticmethod()
++ str()
++ sum()
++ super()
++ tuple()
++ unichr()
++ unicode()
++ vars()
++ xrange()
++  zip()
++ __import__()
++ exec 内置表达式
