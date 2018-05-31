@@ -1,4 +1,0 @@
-- 最长回文子串
-  - http://www.cnblogs.com/leoin2012/p/3984997.html
-- 最长公共子序列
-  - http://blog.csdn.net/gjnm820/article/details/51469824
