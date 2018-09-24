@@ -1,5 +1,8 @@
 ## Reference websites:
 + http://blog.csdn.net/yzl11/article/details/53792416
++ http://javayhu.me/python/
++ http://www.runoob.com/python/python-tutorial.html
+
 
 ## Python super __init
 

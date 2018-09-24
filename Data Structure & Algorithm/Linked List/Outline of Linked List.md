@@ -2,13 +2,19 @@
 
 ### Data Structure
 ```
+class ListNode(object):
+    def __init__(self, x):
+        self.val = x
+        self.next = None
+```
+```
 class Node{
 	Node next = null;
     	int data;
     	public Node(int data){this.data = data;}
 }
 ```
-+ 链表的增加删除
+### 链表的增加删除
 ```
 public class MyLinkedList{
 	Node head = null;
@@ -79,7 +85,7 @@ public class MyLinkedList{
 	}
 }
 ```
-+ 链表删除重复元素
+### 链表删除重复元素
 ```
 // double pointer
 // pointer p : return pointer
@@ -100,7 +106,7 @@ public void deleteDuplecate(Node head){
 	}
 }
 ```
-+ 找出单链表的倒数第K个元素
+### 找出单链表的倒数第K个元素
 ```
 //正向可查找第 length-k：问题是需要遍历两次列表
 public findElem(Node head, int k){
@@ -119,7 +125,7 @@ public findElem(Node head, int k){
 	return p2;
 }
 ```
-+ 实现链表的反转
+### 实现链表的反转
 ```
 public Node reverseLinkedList(Node head){
 	Node pReverHead = Head;
@@ -138,7 +144,7 @@ public Node reverseLinkedList(Node head){
         this.head = pReverHead;
 }
 ```
-+ 从尾到头输出单链表
+### 从尾到头输出单链表
 ```
  public void printReverse(Node head){
  	if(head.next != null){
@@ -148,18 +154,18 @@ public Node reverseLinkedList(Node head){
  }
 ```
 http://www.cnblogs.com/kira2will/p/4109985.html
-+ 寻找单链表的中间节点
-	+ 设置两个指针，快指针一次跳两步，慢指针一次跳一步
-		+ 快指针到尾部时，慢指针为中间节点（奇数个为慢指针指向的那个，偶数时为慢指针指向的那个及下一个）
-+ 检测链表是否有环
-	+ 设置两个指针，快指针一次跳两步，慢指针一次跳一步
-	+ 使用两个slow, fast指针从头开始扫描链表。指针slow 每次走1步，指针fast每次走2步。如果存在环，则指针slow、fast会相遇；如果不存在环，指针fast遇到NULL退出。
-+ 判断有环链表的起始节点
-	+ 方法一： 判断节点有环后，使用（快慢指针相交的节点）确定环的长度N，从原有头节点开始遍历，如果当前Node 与 Node + N 第一次相等，则此节点为环的起始节点
-	+ 方法二： 从头节点和相遇节点分别向前走，相遇得点就是环得起始位置
-+ 不知道头指针的情况下，删除指定节点
+### 寻找单链表的中间节点
++ 设置两个指针，快指针一次跳两步，慢指针一次跳一步
++ 快指针到尾部时，慢指针为中间节点（奇数个为慢指针指向的那个，偶数时为慢指针指向的那个及下一个）
+### 检测链表是否有环
++ 设置两个指针，快指针一次跳两步，慢指针一次跳一步
++ 使用两个slow, fast指针从头开始扫描链表。指针slow 每次走1步，指针fast每次走2步。如果存在环，则指针slow、fast会相遇；如果不存在环，指针fast遇到NULL退出。
+### 判断有环链表的起始节点
++ 方法一： 判断节点有环后，使用（快慢指针相交的节点）确定环的长度N，从原有头节点开始遍历，如果当前Node 与 Node + N 第一次相等，则此节点为环的起始节点
++ 方法二： 从头节点和相遇节点分别向前走，相遇得点就是环得起始位置
+### 不知道头指针的情况下，删除指定节点
 
-+ 判断两个链表是否相交
-	+ 链表相交的含义（？？？）
-	+ 求两个链表的长度差，长的链表的头指针先移动这个长度差，之后判断移动后的长链表与短链表是否相同
-	+ 判断是否有相同的尾节点
+### 判断两个链表是否相交
++ 链表相交的含义（？？？）
++ 求两个链表的长度差，长的链表的头指针先移动这个长度差，之后判断移动后的长链表与短链表是否相同
++ 判断是否有相同的尾节点

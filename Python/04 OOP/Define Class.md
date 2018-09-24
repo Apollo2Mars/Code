@@ -122,16 +122,3 @@
         # output
         Vector(7,8)
         ```
-
-## 高级编程
-+ 参考廖雪峰的博客[Links]( https://www.liaoxuefeng.com/wiki/0014316089557264a6b348958f449949df42a6d3a2e542c000/00143186781871161bc8d6497004764b398401a401d4cce000)
-+ __slot__
-+ @property
-+ 定制类
-+ 元类
-
-
-
-## Magic Function
-+ property
-+ Iterator
