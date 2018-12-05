@@ -1,1 +1,9 @@
-Record some code snippets
+# Record some code snippets
+
+### Data Structure & Algorithm
+
+Java
+
+Leetcode
+
+Python
