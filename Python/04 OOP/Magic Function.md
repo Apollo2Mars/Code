@@ -1,3 +1,0 @@
-## Magic Function
-+ property
-+ Iterator
