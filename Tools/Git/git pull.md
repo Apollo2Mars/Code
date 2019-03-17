@@ -20,3 +20,11 @@ Fast-forward
  1 file changed, 73 insertions(+), 85 deletions(-)
 
 ```
+
+### 拉取远程分支到本地
+
++ git fetch origin branchname:branchname
+  + 可以把远程某各分支拉去到本地的branchname下，如果没有branchname，则会在本地新建branchname
+
++ git checkout origin/remoteName -b localName
+  + 获取远程分支remoteName 到本地新分支localName，并跳到localName分支
