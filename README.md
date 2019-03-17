@@ -1,9 +1,13 @@
-# Record some code snippets
+```{.python .input}
+# Basic Programming Skills
 
-### Data Structure & Algorithm
+### Doing
++ Numpy 矩阵相关操作
++ tensorflow tensor 操作
++ tensorflow 模型训练
+    + session
+    + estimator
++ tensorflow save model and restore
 
-Java
-
-Leetcode
-
-Python
+### python 优雅
+```
