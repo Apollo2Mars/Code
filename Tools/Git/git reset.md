@@ -1,3 +1,18 @@
++ git reset --soft HEAD^
++ 仅仅撤销commit，代码依然保留
+
++ HEAD^ 上一个版本， 同HEAD～1
++ 回退两个版本的 commit 使用 HEAD～2
+
+### git reset 的几个参数
++ --mixed 
+	+ 不删除改动的代码，撤销commit 和 add 
+	+ 默认参数
++ --soft
+	+ 不删除改动的代码，撤销commit， 不撤销 add
++ --hard
+	+ 删除工作空间改动的代码， 撤销commit ，撤销 git add .
+
 + git reset
 	+ http://www.cnblogs.com/craftor/archive/2012/11/04/2754140.html
 	+ git reset –mixed 默认方式，不带任何参数的git reset,只保留源码，回退commit和index 信息。
