@@ -1,6 +1,5 @@
 # Typora
-### Reference
-+ 可用
+### Installl(可用)
 ```
 # optional, but recommended
 sudo apt-key adv --keyserver keyserver.ubuntu.com --recv-keys BA300B7755AFCFAE
