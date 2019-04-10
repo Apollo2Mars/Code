@@ -23,4 +23,7 @@
 	- grep ‘[a-z]{5}’ aa 　　#显示所有包含每行字符串至少有5个连续小写字符的字符串的行
 	- grep magic /usr/src　　#显示/usr/src目录下的文件(不含子目录)包含magic的行
 	- grep -r magic /usr/src　　#显示/usr/src目录下的文件(包含子目录)包含magic的行
-	- grep -w pattern files ：只匹配整个单词，而不是字符串的一部分(如匹配’magic’，而不是’magical’)，
+	- grep -w pattern files ：只匹配整个单词，而不是字符串的一部分(如匹配’magic’，而不是’magical’)
+
+### grep -rn “hello word”
+- 查找当前所在目录下，所有包含“hello world”的所有文件
