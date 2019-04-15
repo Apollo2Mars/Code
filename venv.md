@@ -8,7 +8,10 @@
 - virtualenv -p /usr/bin/python py2env
 
 ### 启动
+
 - source py3env/bin/active
 
 ### 停止
+
 - deactivate
+
