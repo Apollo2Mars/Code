@@ -62,9 +62,7 @@ print([i for i in range(101)])
   - 块级公式
   		$$	x = \dfrac{-b \pm \sqrt{b^2 - 4ac}}{2a} $$
   - 更多LaTex语法请参考 [这儿][3].
-  	​	
-  		$\uparraw$
-  	​	$\uparrow \downarrow \leftarrow \rightarrow \Uparrow \Downarrow \Leftarrow \Rightarrow \longleftarrow \longrightarrow \Longleftarrow \Longrightarrow $$
+    	$\uparrow \downarrow \leftarrow \rightarrow \Uparrow \Downarrow \Leftarrow \Rightarrow \longleftarrow \longrightarrow \Longleftarrow \Longrightarrow $$
 
 + 符号
   + 上标 $x^2$
@@ -160,7 +158,7 @@ $\uparrow
  \longrightarrow
  \longleftarrow
  \Longrightarrow
- \Longleftarrow$
+ \Longleftarrow​$
 
 ## 图表
 
