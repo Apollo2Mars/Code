@@ -1,5 +1,11 @@
+### 安装venv
+
++ pip install virtualenv
++ <https://blog.csdn.net/weixin_42552374/article/details/82756066>
++ export PATH=/Library/Frameworks/Python.framework/Versions/3.6/bin:$PATH
 
 ### 新建venv
+
   - virtualenv venv-emnlp
 
 
