@@ -1,3 +1,21 @@
+# Typora
+
+### Installl(可用)
+
+```
+# optional, but recommended
+sudo apt-key adv --keyserver keyserver.ubuntu.com --recv-keys BA300B7755AFCFAE
+# add Typora's repository
+sudo add-apt-repository 'deb http://typora.io linux/'
+sudo apt-get update
+# install typora
+sudo apt-get install typora
+```
+
+
+
+### Mac typora
+
 最大标题：command + 1 或者：#
 大标题：command + 2 或者：##
 标准标题：command + 3 或者：###
