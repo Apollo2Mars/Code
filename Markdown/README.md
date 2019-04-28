@@ -60,9 +60,7 @@ print([i for i in range(101)])
 + 使用MathJax渲染*LaTex* 数学公式，详见[math.stackexchange.com][1].
   - 行内公式，数学公式为：$\Gamma(n) = (n-1)!\quad\forall n\in\mathbb N$。
   - 块级公式
-  		$$	x = \dfrac{-b \pm \sqrt{b^2 - 4ac}}{2a} $$
-  - 更多LaTex语法请参考 [这儿][3].
-    	$\uparrow \downarrow \leftarrow \rightarrow \Uparrow \Downarrow \Leftarrow \Rightarrow \longleftarrow \longrightarrow \Longleftarrow \Longrightarrow $$
+     $$	x = \dfrac{-b \pm \sqrt{b^2 - 4ac}}{2a} $$
 
 + 符号
   + 上标 $x^2$
@@ -76,7 +74,6 @@ print([i for i in range(101)])
   + 累加 $\sum_{i=0}^n \frac{1}{i^2}$
   + 累乘 $\prod_{i=0}^{n} \frac{1}{i^2}$
 
-  
 
 ## 希腊字母
 

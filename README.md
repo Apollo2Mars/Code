@@ -7,6 +7,21 @@
     + estimator
 + tensorflow save model and restore
 
+<<<<<<< HEAD
+### python 优雅
+
++ pass
+
+### Json Linux  查看
+
+'''
+
+sudo apt-get install jq (ubuntu)
+
+cat a.json | jq .
+
+'''
+=======
 + python 优雅
 
 + CUDA Runtime API 
@@ -30,3 +45,4 @@
    - http://www.cnblogs.com/zkw159/p/6305836.html
 - 开源许可证区别
    - http://geek-workshop.com/thread-1860-1-1.html
+>>>>>>> 4222b1ef999a30cdb8fafdd0025be69b3b9da361
