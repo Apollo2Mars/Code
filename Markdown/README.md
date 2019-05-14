@@ -124,7 +124,15 @@ $\bot, \angle, 30^\circ, \sin, \cos, \tan, \cot, \sec, \csc$
 
 ## 微积分运算符
 
-$\prime, \int, \iint, \iiint, \iiiint, \oint, \lim, \infty, \nabla$
+$\prime$	\prime
+$\int$	\int
+$\iint$	\iint 
+$\iiint$	\iiint 
+$\iiiint$	\iiiint 
+$\oint$	\oint
+$\lim$	\lim 
+$\infty$	\infty 
+$\nabla$	\nabla
 
 ## 逻辑运算符号
 
