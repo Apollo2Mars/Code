@@ -1,5 +1,7 @@
 [TOC]
 
+
+
 # Basic Operation of Vim
 
 ## 全选
@@ -16,6 +18,16 @@
   y  复制选中内容到0号寄存器 
   "+y  复制选中内容到＋寄存器，也就是系统的剪贴板，供其他程序用 
 
+## 复制
+
+yy     复制一行，此命令前可跟数字，标识复制多行，如6yy，表示从当前行开始复制6行
+yw     复制一个字
+y$     复制到行末
+
+\+y  复制到+寄存器
+
+
+
 ## 移动
 
 1、左移h、右移l、下移j、上移k
@@ -31,6 +43,35 @@
 11、移动光标到屏幕顶端H，移动到屏幕中间M，移动到底部L
 12、读取当前字符，并移动到本屏幕内下一次出现的地方 *
 13、读取当前字符，并移动到本屏幕内上一次出现的地方 #
+
+
+
+- h Move left
+- j Move down
+- k Move up
+- l Move right
+- w Move to next word
+- W Move to next blank delimited word
+- b Move to the beginning of the word
+- B Move to the beginning of blank delimted word
+- e Move to the end of the word
+- E Move to the end of Blank delimited word
+- ( Move a sentence back
+- ) Move a sentence forward
+- { Move a paragraph back
+- } Move a paragraph forward
+- 0 Move to the begining of the line
+- $ Move to the end of the line
+- 1G Move to the first line of the file
+- G Move to the last line of the file
+- nG Move to nth line of the file
+- :n Move to nth line of the file
+- fc Move forward to c
+- Fc Move back to c
+- H Move to top of screen
+- M Move to middle of screen
+- L Move to botton of screen
+- % Move to associated ( ), { }, [ ]
 
 ## 查找替换
 1、光标向后查找关键字 #或者g#
@@ -80,6 +121,45 @@ PS：.代表一个任意字符 *代表一个或多个字符的重复
 31、合并两行 J
 32、若不想保存文件，而重新打开 :e!
 33、若想打开新文件 :e filename，然后使用ctrl + ^进行文件切换
+
+
+
+## 多行注释/多行缩进
+
+- 首先按esc进入命令行模式下，按下Ctrl + v，进入列（也叫区块）模式
+- 在行首使用上下键选择需要注释的多行
+- 按下键盘（大写）“I”键，进入插入模式
+- 然后输入注释符（“//”、“#”等)
+- 最后按下“Esc”键。 注：在按下esc键后，会稍等一会才会出现注释，不要着急~~时间很短的 
+
+## 删除多行注释
+
+- 首先按esc进入命令行模式下，按下Ctrl + v, 进入列模式
+- 选定要取消注释的多行
+- 按下“x”或者“d”. 注意：如果是“//”注释，那需要执行两次该操作，如果是“#”注释，一次即可
+
+## 多行删除
+
+- 首先在命令模式下，输入“：set nu”显示行号； 2.通过行号确定你要删除的行； 3.命令输入“：32,65d”,回车键，32-65行就被删除了，很快捷吧
+
+
+
+## 多行合并
+
+- 按 ESC 进入 Normal 模式，移动游标定位到第 2 行的位置。
+- 按 shift+j 就可以实现合并行的操作。
+
+## vim 将文件所有行合并到一行
+
+- 在 Normal Mode下执行
+- ggvGJ
+- gg 用于跳到行首
+- v 转换成 visual 模式
+- G 跳到最后一行
+
+J 合并行
+
+
 
 ## 窗口操作
 1、分隔一个窗口:split或者:vsplit
