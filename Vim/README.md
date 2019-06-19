@@ -4,6 +4,12 @@
 
 # Basic Operation of Vim
 
+
+
+### 代码折叠
+
++ https://www.cnblogs.com/abeen/archive/2010/08/06/1794197.html
+
 ## 全选
 
 - 全选（高亮显示）：按esc后，然后ggvG或者ggVG
