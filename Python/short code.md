@@ -1,1 +1,0 @@
-word_list = [song2id[_] if _ in song2id else song2id['<UNK>'] for _ in word_list]
