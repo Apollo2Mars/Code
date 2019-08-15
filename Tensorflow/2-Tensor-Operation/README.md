@@ -2,6 +2,8 @@
 ## Reference
 + 常用函数
 	+ https://blog.csdn.net/wuqingshan2010/article/details/71056292
++ 各种操作
+    + https://www.jianshu.com/p/9203da19460a
 
 ## 常用函数
 + TensorFlow 将图形定义转换成分布式执行的操作, 以充分利用可用的计算资源(如 CPU 或 GPU。一般你不需要显式指定使用 CPU 还是 GPU, TensorFlow 能自动检测。
