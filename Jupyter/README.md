@@ -29,3 +29,6 @@ jupyter notebook
 
 - <https://blog.csdn.net/lucky7213/article/details/79286699>
 - 必须运行虚拟环境
+
+## 快捷键
+https://blog.csdn.net/lawme/article/details/51034543
