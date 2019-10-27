@@ -2,15 +2,18 @@
 
 # Basic Operation of Vim
 
+
 # Vim setting
 + Reference:
 	+ [mac 配置vim](https://www.jianshu.com/p/923aec861af3)
 	+ [macvim air-line](http://www.4e00.com/blog/vim/2014/08/06/airline-settings-on-macvim.html) 
 + 代码折叠
 	+ https://www.cnblogs.com/abeen/archive/2010/08/06/1794197.html
+
 # Vim operation
 
-## 全选
+## 全选复制
++ ddyG
 
 - 全选（高亮显示）：按esc后，然后ggvG或者ggVG
   全部复制：按esc后，然后ggyG
